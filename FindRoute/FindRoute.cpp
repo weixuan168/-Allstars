@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "init.h"
+#include "acs.h"
 
 using namespace std;
 
@@ -10,9 +11,9 @@ using namespace std;
 void main()
 {
 	cout<<"请输入要读取的文件：";
-	string file;
-	cin>>file;
-    readTxt(file);
+
+    
+	begin(readTxt("e://test.txt"));
 	system("pause");
 
 }

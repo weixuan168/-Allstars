@@ -11,11 +11,11 @@ using namespace std;
 
 #define MAX_NODES 615
 
-extern bool isNodesRequire[MAX_NODES];	
+extern bool isNodesRequire[];	
 extern short startNode, endNode;
 extern std::map<unsigned short, unsigned short> mustGoToReqNode;
 extern double  *prob_of_selection;	
-extern std::map<unsigned short,double> smell[MAX_NODES];
+extern float smell[];
 
 
 struct Ant{
@@ -23,11 +23,11 @@ struct Ant{
    std::vector<unsigned short> req_node_idx;
    unsigned short curNode;			// the node this ant currently in
    unsigned short requireCnt;		// how many require nodes this ant has passed
+   unsigned short requireLine;
+   unsigned short avoidLine;
    int  tour_length;
    bool visited[MAX_NODES];
    bool stop;				// whether this ant is in stop state
-   bool isForward;		
-
 };
 void ant_empty_memory(Ant &k);
 void allocate_ants();
@@ -44,10 +44,12 @@ extern bool ignoreWeightMode;
 extern double alpha;
 extern double beta;
 extern double gama;
-extern double rho;
 extern double q_0;  
 
 extern void init_pheromone_trails (const double &initial_trail);
-extern bool neighbour_choose_and_move_to_next( Ant &k);
+extern bool neighbour_choose_and_move_to_next( Ant &k,vector<vector<int>>);
+extern int find_best();
+extern bool copy_from_to(Ant *a1, Ant *a2);
+extern void local_acs_pheromone_update(Ant *k);
 
 #endif

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <string>
 #include <vector>
+#include "defines.h"
 using namespace std;
 
 
@@ -15,8 +16,12 @@ extern int avoidEdge_num;
 
 extern vector<vector<int>> link;
 extern vector<int> mustNodes;
-extern vector<vector<double>> traffic;
-extern vector<vector<int>> distan;
+extern vector<int> mustEdges;
+extern vector<int> avoidEdges;
 
-void readTxt(string file);
+
+extern int distan[ARRAYINF][ARRAYINF];
+extern int mapLen[ARRAYINF][ARRAYINF];
+
+vector<vector<int>> readTxt(string file);
 #endif
